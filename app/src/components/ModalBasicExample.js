@@ -23,9 +23,12 @@ export default class TransitionablePortalExamplePortal extends Component {
       })
     }
   }
+  componentWillUnmount() {
+    this.subscription.unsubscribe()
+  }
 
   subscribe_to_events = async () => {
-    this.props.lottery_contract.events.LotteryWon(() => {
+    this.subscription = this.props.lottery_contract.events.LotteryWon(() => {
       console.log('The lottery has been won!')
 
       this.handleOpen()
