@@ -1,0 +1,35 @@
+h1 {
+    font-size: 42px;
+    font-weight: 900;
+    font-family: 'Montserrat';
+}
+
+p {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 200;
+    font-family: 'Montserrat';
+}
+
+#tab-segment {
+    padding-top: 30px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#header {
+    margin: 30px;
+}
+
+#info {
+    margin: 30px;
+}
+
+#rules {
+    margin: 30px;
+}

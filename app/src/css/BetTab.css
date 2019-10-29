@@ -1,0 +1,56 @@
+#tab_segment {
+    text-align: center;
+}
+
+#label_header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#header_row {
+    width: 100%;
+    display: inline-block;
+}
+
+#contract_balance {
+    position: relative;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+
+#contract_guesses {
+    position: relative;
+    margin-left: 5px;
+    top: -5px;
+    font-size: 20px;
+    font-weight: 0;
+}
+
+#dropdown_menu {
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 50%;
+}
+
+#guess_segment {
+    width: 100%;
+}
+
+#guess_label {
+    padding: 10px;
+    display: inline-block;
+}
+
+#guess_input {
+    padding: 10px;
+    display: inline-block;
+}
+
+#button_segment {
+    padding: 30px;
+    margin: 0 auto;
+    width: 25%;
+}

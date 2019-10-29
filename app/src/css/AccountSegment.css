@@ -1,0 +1,22 @@
+li {
+    list-style-type: none;
+}
+
+#segment {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#comment_avatar {
+    margin: 10px;
+}
+
+#currency_label_row {
+    font-size: 8px;
+}
+
+#currency_label {
+    font-size: 14px;
+    font-weight: 900;
+    margin-right: 10px;
+}

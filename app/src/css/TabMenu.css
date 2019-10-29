@@ -1,0 +1,13 @@
+#tab-menu {
+    padding-top: 30px;
+    margin: 0 auto;
+    width: 70%;
+}
+
+#menu_item.active {
+    border-color: #59ffbf;
+}
+
+#menu_item.active i {
+    color: #59ffbf;
+}
