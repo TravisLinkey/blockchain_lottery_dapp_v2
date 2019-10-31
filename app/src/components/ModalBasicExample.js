@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Header,
-  Segment,
-  TransitionablePortal,
-} from 'semantic-ui-react'
+import { Header, Segment, TransitionablePortal } from 'semantic-ui-react'
 import '../css/ModalBasicExample.css'
 
 export default class TransitionablePortalExamplePortal extends Component {
@@ -16,15 +12,12 @@ export default class TransitionablePortalExamplePortal extends Component {
     this.subscribe_to_events()
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     if(this.props.contract_balance > 0) {
       this.setState({
         contract_balance: this.props.contract_balance
       })
     }
-  }
-  componentWillUnmount() {
-    this.subscription.unsubscribe()
   }
 
   subscribe_to_events = async () => {
@@ -67,6 +60,7 @@ export default class TransitionablePortalExamplePortal extends Component {
           >
             <div id="modal_segment">
               <Header className="wrapper"><h1>Congratulations</h1></Header>
+              
               <i className="ethereum icon" id="ethereum" />
               <h4>You have guessed the Magic Number!</h4>
               <h4>You will now receive the entire balance:</h4>

@@ -26,10 +26,12 @@ h2 {
 }
 
 #ethereum {
-    font-size: calc(40px + 1.5vw);
     background: -webkit-linear-gradient(#e66465, #9198e5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     height: auto;
+    font-size: calc(10vh);
+    line-height: calc(10vh);
+    display: inline-block;
 }
 

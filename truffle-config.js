@@ -9,8 +9,6 @@ if (fs.existsSync('app/secrets.json')) {
 }
 
 module.exports = {
-  // See <http://truffleframework.com/docs/advanced/configuration>
-  // to customize your Truffle configuration!
   contracts_build_directory: path.join(__dirname, "app/src/contracts"),
   networks: {
     development: {
@@ -19,7 +17,6 @@ module.exports = {
       // port: 7545,
       // port: 8545,     // ganache-cli
       port: 9545,        // truffle develop
-      network_id: "*" // Match any network id
     },
     production: {
       provider: new HDWalletProvider(secrets.mnemonic, secrets.kaleidoUrl),

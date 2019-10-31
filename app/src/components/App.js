@@ -7,14 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // component imports
 import TabMenu from './TabMenu';
+import MetaMaskPopup from './MetaMaskPopup';
 
 // web3 imports
 import LotteryFactory from "../contracts/LotteryFactory.json";
 import getWeb3 from "../utils/getWeb3";
-import { setJSON, getJSON } from '../utils/IPFS.js'
-
-const etherscanBaseUrl = "https://console.kaleido.io/environments/u0q6gn6jsy/u0fee8plb7/explorer";
-const ipfsBaseUrl = "https://u0fee8plb7-u0oc1dfpxi-ipfs.us0-aws.kaleido.io/ipfs";
 
 class App extends React.Component {
     constructor(props) {
@@ -22,16 +19,13 @@ class App extends React.Component {
 
         this.state = {
             lottery_contract: null,
-            etherscanLink: "https://rinkeby.etherscan.io",
             account: null,
             total_guesses: null,
             contract_balance: null,
             web3: null,
-            loading: true
+            loading: true,
+            has_metamask: false
         }
-
-        // this.handleIssueBounty = this.handleIssueBounty.bind(this)
-        // this.handleChange = this.handleChange.bind(this)
     }
 
     // lifecycle methods
@@ -42,6 +36,10 @@ class App extends React.Component {
 
             // use web3 to get user's accounts
             let accounts = await web3.eth.getAccounts();
+
+            this.setState({
+                has_metamask: true
+            })
 
             // TODO - Combine the accounts and balances into an object
             accounts = await this.get_account_objects(accounts, web3);
@@ -57,10 +55,13 @@ class App extends React.Component {
                 web3: web3,
                 accounts: accounts,
             })
+
             this.update_values()
             this.addEventListener(this)
 
-        } catch (error) { }
+        } catch (error) {
+            console.log("Possibly it worked!")
+        }
     };
 
     get_account_objects = async (accounts, web3) => {
@@ -89,13 +90,18 @@ class App extends React.Component {
     }
 
     // listener methods
-    addEventListener(component) {
+    addEventListener() {
         this.state.lottery_contract.events.GuessMade(async () => {
             await this.update_values()
         })
     }
 
     render() {
+        if (!this.state.has_metamask) {
+            return (
+                <MetaMaskPopup />
+            )
+        }
         if (!this.state.web3 || this.state.loading) {
             return <div>Loading Web3, accounts, and contract. . .</div>
         }
@@ -113,28 +119,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// async handleIssueBounty(event) {
-    //     if (typeof this.state.bountiesInstance !== 'undefined') {
-    //         event.preventDefault();
-    //         const ipfsHash = await setJSON({ bountyData: this.state.bountyData });
-    //         let result = await this.state.bountiesInstance.methods.issueBounty(ipfsHash, this.state.bountyDeadline).send({ from: this.state.account, value: this.state.web3.utils.toWei(this.state.bountyAmount, 'ether') })
-    //         this.setLastTransactionDetails(result)
-    //     }
-    // }
-    // handleChange(event) {
-    //     switch (event.target.name) {
-    //         case "bountyData":
-    //             this.setState({ "bountyData": event.target.value })
-    //             break;
-    //         case "bountyDeadline":
-    //             this.setState({ "bountyDeadline": event.target.value })
-    //             break;
-    //         case "bountyAmount":
-    //             this.setState({ "bountyAmount": event.target.value })
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }

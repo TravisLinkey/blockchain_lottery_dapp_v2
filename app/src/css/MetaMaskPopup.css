@@ -1,0 +1,22 @@
+.blockScreen {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    zIndex: 99;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
+#modal_segment {
+    line-height: 5;
+}
+
+h2 {
+    font-weight: 700;
+}
