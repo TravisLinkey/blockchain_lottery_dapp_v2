@@ -24,7 +24,7 @@ class App extends React.Component {
             contract_balance: null,
             web3: null,
             loading: true,
-            has_metamask: false
+            has_metamask: true
         }
     }
 
@@ -37,16 +37,13 @@ class App extends React.Component {
             // use web3 to get user's accounts
             let accounts = await web3.eth.getAccounts();
 
-            this.setState({
-                has_metamask: true
-            })
-
             // TODO - Combine the accounts and balances into an object
             accounts = await this.get_account_objects(accounts, web3);
 
             // get the contract instance
             const network_id = await web3.eth.net.getId();
             const deployed_network = LotteryFactory.networks[network_id];
+
             const instance = new web3.eth.Contract(LotteryFactory.abi, deployed_network && deployed_network.address);
 
             // Set web3, accounts and contract to the state
@@ -60,9 +57,13 @@ class App extends React.Component {
             this.addEventListener(this)
 
         } catch (error) {
-            console.log("Possibly it worked!")
+            console.log(error)
+            this.setState({
+                has_metamask: false
+            })
+            
         }
-    };
+   };
 
     get_account_objects = async (accounts, web3) => {
         let account_objects = [];
