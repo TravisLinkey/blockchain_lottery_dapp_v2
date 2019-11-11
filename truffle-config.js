@@ -4,7 +4,7 @@ const fs = require('fs');
 
 let secrets;
 
-if (fs.existsSync('app/secrets.json')) {
+if (fs.existsSync('./app/secrets.json')) {
   secrets = JSON.parse(fs.readFileSync('./app/secrets.json', 'utf8'));
 }
 

@@ -21,14 +21,16 @@ class MetaMaskPopup extends React.Component {
                             top: '45%',
                             left: '50%',
                             'zIndex': 101,
-                            'marginTop': '-200px',
-                            'marginLeft': '-250px'
+                            'marginTop': '-150px',
+                            'marginLeft': '-35%'
                         }}
                     >
                         <div id="modal_segment">
                             <Header className="wrapper"><h2>MetaMask Required!</h2></Header>
                             <h4>Click to Navigate to MetaMask</h4>
                             <button className="ui primary button" onClick={() => {window.open("https://Metamask.io", '_blank')}}>Get MetaMask</button>
+                            <h3>Once Installed, Configure MetaMask to the following URL:</h3>
+                            <h3>https://u0me76lo5c:j3ncTTFZ6jAd6EZRJ89_E90uAyUFJ5H0vItOR5obH0o@u0vsj32iir-u0j93o7nma-rpc.us0-aws.kaleido.io</h3>
                         </div>
                     </Segment>
                 </TransitionablePortal>
