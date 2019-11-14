@@ -75,6 +75,16 @@ class App extends React.Component {
         return account_objects;
     }
 
+    // listener methods
+    addEventListener(component) {
+
+        this.state.lottery_contract.events.GuessMade({fromBlock: 0, toBlock: 'latest'})
+        .on('data', async (event) => {
+            // console.log('Watch right here: ', event)
+            this.update_values()
+        })
+    }
+
     update_values = async () => {
         let total_guesses = await this.state.lottery_contract.methods.get_total_guesses().call();
         let contract_balance = await this.state.lottery_contract.methods.get_balance().call();
@@ -87,13 +97,6 @@ class App extends React.Component {
             contract_balance: contract_balance,
             magic_number: magic_number,
             loading: false
-        })
-    }
-
-    // listener methods
-    addEventListener() {
-        this.state.lottery_contract.events.GuessMade(async () => {
-            await this.update_values()
         })
     }
 
