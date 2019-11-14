@@ -13,6 +13,10 @@ import MetaMaskPopup from './MetaMaskPopup';
 import LotteryFactory from "../contracts/LotteryFactory.json";
 import getWeb3 from "../utils/getWeb3";
 
+// kaliedo connection fields
+const etherscanBaseUrl = "https://console.kaleido.io/environments/u0qz5lz6a1/u0vsj32iir/explorer";
+const ipfsBaseUrl = "u0me76lo5c:j3ncTTFZ6jAd6EZRJ89_E90uAyUFJ5H0vItOR5obH0o@u0vsj32iir-u0fptav0fs-ipfs.us0-aws.kaleido.io";
+
 class App extends React.Component {
     constructor(props) {
         super(props)
