@@ -84,7 +84,7 @@ class App extends React.Component {
 
         this.state.lottery_contract.events.GuessMade({fromBlock: 0, toBlock: 'latest'})
         .on('data', async (event) => {
-            // console.log('Watch right here: ', event)
+            console.log('Watch right here: ', event)
             this.update_values()
         })
     }
