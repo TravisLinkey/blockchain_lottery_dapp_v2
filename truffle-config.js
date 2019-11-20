@@ -11,12 +11,15 @@ if (fs.existsSync('./app/secrets.json')) {
 module.exports = {
   contracts_build_directory: path.join(__dirname, "app/src/contracts"),
   networks: {
-    development: {
+    truffle: {
       network_id: "*",
       host: "127.0.0.1",
-      // port: 7545,
-      // port: 8545,     // ganache-cli
       port: 9545,        // truffle develop
+    },
+    ganache: {
+      network_id: "*",
+      host: "127.0.0.1",
+      port: 8545,     // ganache-cli
     },
     production: {
       provider: new HDWalletProvider(secrets.mnemonic, secrets.kaleidoUrl),

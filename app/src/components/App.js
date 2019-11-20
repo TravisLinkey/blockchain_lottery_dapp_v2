@@ -49,7 +49,7 @@ class App extends React.Component {
             const deployed_network = LotteryFactory.networks[network_id];
 
             const instance = new web3.eth.Contract(LotteryFactory.abi, deployed_network && deployed_network.address);
-
+            
             // Set web3, accounts and contract to the state
             this.setState({
                 lottery_contract: instance,
@@ -81,8 +81,7 @@ class App extends React.Component {
 
     // listener methods
     addEventListener(component) {
-
-        this.state.lottery_contract.events.GuessMade({fromBlock: 0, toBlock: 'latest'})
+        this.state.lottery_contract.events.GuessMade({}, {fromBlock: 0})
         .on('data', async (event) => {
             console.log('Watch right here: ', event)
             this.update_values()
