@@ -30,7 +30,7 @@ class MetaMaskPopup extends React.Component {
                             <h4>Click to Navigate to MetaMask</h4>
                             <button className="ui primary button" onClick={() => {window.open("https://Metamask.io", '_blank')}}>Get MetaMask</button>
                             <h3>Once Installed, Configure MetaMask to the following URL:</h3>
-                            <h3>https://u0me76lo5c:j3ncTTFZ6jAd6EZRJ89_E90uAyUFJ5H0vItOR5obH0o@u0vsj32iir-u0j93o7nma-rpc.us0-aws.kaleido.io</h3>
+                            <h3>https://u0cb66q4mz:LyI3MwskVavHMiqVepLsyfOpOcgy5hNkJkoG07YKCGs@u0zhr6lcsn-u0o2i9fhop-rpc.us0-aws.kaleido.io</h3>
                         </div>
                     </Segment>
                 </TransitionablePortal>
